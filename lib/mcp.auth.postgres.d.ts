@@ -1,0 +1,11 @@
+import fromPg from './functions/sql/from.pg';
+import fromPostgresJs from './functions/sql/from.postgres.js';
+import SqlStorage from './storage/sql.storage';
+import type SqlExecutorType from './types/sql.executor.type';
+import type SqlStorageOptionsType from './types/sql.storage.options.type';
+declare const postgresStorage: (executor: SqlExecutorType, options?: SqlStorageOptionsType) => SqlStorage;
+declare const postgresSchema: (tablePrefix?: string) => string[];
+export { postgresStorage, postgresSchema, fromPg, fromPostgresJs, SqlStorage };
+export type { SqlExecutorType, SqlStorageOptionsType };
+declare const McpAuthPostgres: {};
+export default McpAuthPostgres;

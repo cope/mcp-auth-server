@@ -1,0 +1,1 @@
+{"version":3,"file":"oauth.error.response.js","sourceRoot":"","sources":["../../../src/functions/http/oauth.error.response.ts"],"names":[],"mappings":"AAAA,YAAY,CAAC;;;;;AAGb,oEAA2C;AAE3C,MAAM,kBAAkB,GAAG,CAAC,MAAc,EAAE,KAAa,EAAE,WAAmB,EAAE,UAAkC,EAAE,EAAoB,EAAE,CACzI,IAAA,uBAAY,EAAC,MAAM,EAAE,EAAC,KAAK,EAAE,iBAAiB,EAAE,WAAW,EAAC,EAAE,OAAO,CAAC,CAAC;AACxE,kBAAe,kBAAkB,CAAC"}

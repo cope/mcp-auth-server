@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm i *)",
+      "Bash(pnpm add *)",
+      "Bash(python \"C:/Users/predrags/AppData/Local/Temp/claude/C--git-github-mcp-auth-server/9904929c-2d2c-4729-95a3-3754e55b66a7/scratchpad/gen_fn3.py\")",
+      "Bash(npx eslint *)",
+      "Bash(sed -i \"s#'\\\\*\\\\*/dist/\\\\*\\\\*'#'**/lib/**'#\" eslint.config.mjs)",
+      "Bash(grep -v \"^$\")",
+      "Bash(pnpm build *)",
+      "Bash(pnpm run *)",
+      "Bash(strictr)",
+      "Bash(skeletest)"
+    ]
+  }
+}

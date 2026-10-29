@@ -1,0 +1,14 @@
+name = "mcp-auth-example"
+main = "worker.mjs"
+compatibility_date = "2026-07-01"
+
+[vars]
+ISSUER = "https://mcp-auth-example.example.workers.dev"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mcp-auth"
+database_id = "replace-me"
+
+[triggers]
+crons = ["*/10 * * * *"]

@@ -1,0 +1,9 @@
+allowBuilds:
+  '@parcel/watcher': true
+  unrs-resolver: true
+  better-sqlite3: true
+  es5-ext: true
+  mongodb-memory-server: true
+
+minimumReleaseAgeExclude:
+  - 'jose'

@@ -1,0 +1,108 @@
+{
+	"name": "mcp-auth-server",
+	"version": "0.1.0",
+	"description": "OAuth 2.1 authorization server for MCP servers, runtime-agnostic",
+	"license": "MIT",
+	"files": [
+		"lib/**/*",
+		"sql/**/*"
+	],
+	"bin": {
+		"mcp-auth-keygen": "./bin/keygen.mjs"
+	},
+	"main": "./lib/mcp.auth.server.js",
+	"types": "./lib/mcp.auth.server.d.ts",
+	"scripts": {
+		"all": "pnpm i && pnpm dedupe && (pnpm audit --fix=update || echo audit: unresolved vulnerabilities remain) && pnpm clean && pnpm format && pnpm build && skeletest -f && strictr -f && pnpm test && pnpm integration && pnpm run docs mcp-auth-server",
+		"clear:lib": "node -e \"require('node:fs').rmSync('lib',{recursive:true,force:true})\"",
+		"build": "pnpm clear:lib && tsc",
+		"build:watch": "tsc --watch",
+		"lint": "eslint .",
+		"clean": "eslint --fix .",
+		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+		"docs": "typedoc --readme none --out docs ./src/mcp.auth.server.ts",
+		"sync": "git pull && git fetch origin && git merge origin/main && pnpm i && git branch",
+		"test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --coverage --config jest.config.js",
+		"integration": "ts-node test/integration/storage.integration.ts",
+		"quick": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config jest.config.js",
+		"test:watch": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch --config jest.config.js",
+		"coveralls": "coveralls < coverage/lcov.info",
+		"test_qube": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --coverage --config jest.config.js --testResultsProcessor=jest-sonar-reporter",
+		"up": "pnpm up -i",
+		"latest": "pnpm up -i -L",
+		"l": "pnpm i && pnpm latest",
+		"srctree": "node -e \"const fs=require('node:fs'),path=require('node:path');fs.readdirSync('src',{recursive:true}).forEach(f=>console.log(path.resolve('src',f)))\" > srctree.txt",
+		"keygen": "node bin/keygen.mjs",
+		"preinstall": "npx only-allow pnpm"
+	},
+	"engines": {
+		"node": ">=24.12.0"
+	},
+	"packageManager": "pnpm@12.15.0",
+	"author": "Predrag Stojadinovic <predrag@stojadinovic.net>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/predragstojadinovic/mcp-auth-server.git"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"minimumReleaseAge": 2880,
+	"dependencies": {
+		"jose": "^5.10.0"
+	},
+	"devDependencies": {
+		"@electric-sql/pglite": "^0.5.12",
+		"@eslint/js": "^10.0.1",
+		"@types/better-sqlite3": "^9.6.0",
+		"@types/express": "^5.0.6",
+		"@types/jest": "^30.0.0",
+		"@types/koa": "^3.0.3",
+		"@types/node": "^26.6.5",
+		"@types/pg": "^8.23.1",
+		"@types/rewire": "^2.5.30",
+		"better-sqlite3": "^13.0.3",
+		"coveralls": "^3.1.1",
+		"eslint": "^10.13.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-sonarjs": "^4.2.2",
+		"express": "^5.3.0",
+		"fastify": "^5.12.7",
+		"jest": "^30.5.2",
+		"jest-sonar-reporter": "^2.0.0",
+		"koa": "^3.2.1",
+		"mongodb": "^7.7.0",
+		"mongodb-memory-server": "^11.3.0",
+		"pg": "^8.23.1",
+		"prettier": "^3.9.10",
+		"rewire": "^9.0.1",
+		"skeletest": "^0.7.5",
+		"source-map-support": "^0.5.21",
+		"strictr": "^0.5.7",
+		"ts-jest": "^29.4.15",
+		"ts-node": "^10.9.2",
+		"typedoc": "^0.28.20",
+		"typescript": "^6.0.3",
+		"typescript-eslint": "^8.72.1"
+	},
+	"peerDependencies": {
+		"express": ">=4",
+		"fastify": ">=4",
+		"koa": ">=2",
+		"mongodb": ">=6"
+	},
+	"peerDependenciesMeta": {
+		"express": {
+			"optional": true
+		},
+		"fastify": {
+			"optional": true
+		},
+		"koa": {
+			"optional": true
+		},
+		"mongodb": {
+			"optional": true
+		}
+	}
+}

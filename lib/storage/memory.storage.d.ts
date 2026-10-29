@@ -1,0 +1,30 @@
+import type AuthorizationCodeRecordType from '../types/authorization.code.record.type';
+import type ClientRecordType from '../types/client.record.type';
+import type ConsentRecordType from '../types/consent.record.type';
+import type IStorage from '../types/i.storage';
+import type PendingAuthorizationType from '../types/pending.authorization.type';
+import type PendingFilterType from '../types/pending.filter.type';
+import type RefreshTokenRecordType from '../types/refresh.token.record.type';
+export default class MemoryStorage implements IStorage {
+    private clients;
+    private pending;
+    private codes;
+    private refreshTokens;
+    private consents;
+    getClient(clientId: string): Promise<ClientRecordType | null>;
+    saveClient(client: ClientRecordType): Promise<void>;
+    savePendingAuthorization(pending: PendingAuthorizationType): Promise<void>;
+    getPendingAuthorization(stateId: string, now: Date): Promise<PendingAuthorizationType | null>;
+    attachUserToPendingAuthorization(stateId: string, userId: string, now: Date, displayName?: string): Promise<PendingAuthorizationType | null>;
+    takePendingAuthorization(stateId: string, filter: PendingFilterType): Promise<PendingAuthorizationType | null>;
+    deletePendingAuthorization(stateId: string): Promise<void>;
+    saveAuthorizationCode(code: AuthorizationCodeRecordType): Promise<void>;
+    claimAuthorizationCode(codeHash: string, now: Date): Promise<AuthorizationCodeRecordType | null>;
+    saveRefreshToken(token: RefreshTokenRecordType): Promise<void>;
+    findRefreshToken(tokenHash: string): Promise<RefreshTokenRecordType | null>;
+    claimRefreshToken(tokenHash: string, now: Date): Promise<RefreshTokenRecordType | null>;
+    revokeRefreshTokenFamily(familyId: string, now: Date): Promise<void>;
+    hasConsent(clientId: string, userId: string): Promise<boolean>;
+    upsertConsent(consent: ConsentRecordType): Promise<void>;
+    deleteExpired(now: Date): Promise<void>;
+}

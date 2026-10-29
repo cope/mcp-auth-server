@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "es2022",
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+		"types": ["node"],
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"declaration": true,
+		"rootDir": "./src",
+		"outDir": "./lib",
+		"strict": true,
+		"noImplicitAny": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true
+	},
+	"include": ["./src/**/*"],
+	"exclude": [".idea", ".sonarlint", "coverage", "docs", "node_modules", "test", "lib"]
+}

@@ -1,0 +1,12 @@
+.sonarlint
+dist
+docs
+coverage
+srctree.txt
+*.log
+node_modules/
+.eslintcache
+.env
+.idea
+*.tgz
+/.scannerwork/
