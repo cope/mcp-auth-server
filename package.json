@@ -1,6 +1,6 @@
 {
 	"name": "mcp-auth-server",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"description": "OAuth 2.1 authorization server for MCP servers, runtime-agnostic",
 	"license": "MIT",
 	"files": [
@@ -26,7 +26,6 @@
 		"integration": "ts-node test/integration/storage.integration.ts",
 		"quick": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config jest.config.js",
 		"test:watch": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch --config jest.config.js",
-		"coveralls": "coveralls < coverage/lcov.info",
 		"test_qube": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --coverage --config jest.config.js --testResultsProcessor=jest-sonar-reporter",
 		"up": "pnpm up -i",
 		"latest": "pnpm up -i -L",
@@ -62,7 +61,6 @@
 		"@types/pg": "^8.23.1",
 		"@types/rewire": "^2.5.30",
 		"better-sqlite3": "^13.0.3",
-		"coveralls": "^3.1.1",
 		"eslint": "^10.13.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-sonarjs": "^4.2.2",
