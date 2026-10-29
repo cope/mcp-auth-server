@@ -1,6 +1,6 @@
 {
 	"name": "mcp-auth-server",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "OAuth 2.1 authorization server for MCP servers, runtime-agnostic",
 	"license": "MIT",
 	"files": [
@@ -42,7 +42,7 @@
 	"author": "Predrag Stojadinovic <predrag@stojadinovic.net>",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/predragstojadinovic/mcp-auth-server.git"
+		"url": "git+https://github.com/cope/mcp-auth-server.git"
 	},
 	"publishConfig": {
 		"access": "public"
